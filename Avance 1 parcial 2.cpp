@@ -1,9 +1,9 @@
 // Librearias
-#include <iostream> 
-#include <vector>
-#include <queue>
-#include <stack>
-#include <algorithm>
+#include <iostream> //cin cout
+#include <vector> //arreglos dinámicos
+#include <queue> //implementación de colas
+#include <stack> //implementación de pilas
+#include <algorithm> //ordenamiento y búsqueda,
 #include <climits> // Para INT_MAX
 
 using namespace std;
