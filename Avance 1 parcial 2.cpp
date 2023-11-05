@@ -230,6 +230,7 @@ public:
 
 
 int main() {
+    setlocale(LC_ALL, "spanish"); //Comando para al momento de imprimir se puedan imprimir los acentos y las ñ's
     int numVertices, choice; // Número de vértices y elección del usuario
 
     cout << "Ingrese el número de vértices del grafo: "; // Obtener número de vértices
