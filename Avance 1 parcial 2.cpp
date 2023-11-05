@@ -5,6 +5,7 @@
 #include <stack> //implementación de pilas
 #include <algorithm> //ordenamiento y búsqueda,
 #include <climits> // Para INT_MAX
+#include <conio.h> // Para hacer pausas
 
 using namespace std;
 
@@ -19,6 +20,8 @@ public:
         graph = vector< vector< int > >(V, vector<int>(V, 0)); // Inicializar matriz de adyacencia
     }
 
+    
+
     void printMatrix() { // Imprimir matriz de adyacencia
         for (int i = 0; i < V; ++i) { 
             for (int j = 0; j < V; ++j) { 
@@ -28,7 +31,7 @@ public:
         }
     }
 
-    void addEdge(int u, int v, int weight) { // Agregar arista
+     void addEdge(int u, int v, int weight) { // Agregar arista
         graph[u][v] = weight; // Grafo dirigido 
         graph[v][u] = weight;  // Grafo no dirigido
     }
@@ -247,6 +250,7 @@ int main() {
     }
 
     do { // Menú
+        system("cls");
         cout << "\nMenú:\n";
         cout << "1. Mostrar matriz de adyacencia\n";
         cout << "2. Mostrar lista de adyacencia\n";
@@ -264,21 +268,25 @@ int main() {
             case 1: // Mostrar matriz de adyacencia
                 cout << "Matriz de adyacencia:\n"; 
                 matrixGraph.printMatrix();
+                getch();
                 break;
             case 2: // Mostrar lista de adyacencia
                 cout << "Lista de adyacencia:\n";
                 listGraph.printList();
+                getch();
                 break;
             case 3: // Verificar si el grafo es conexo
                 if (matrixGraph.isConnected())
                     cout << "El grafo es conexo.\n";
                 else
                     cout << "El grafo no es conexo.\n";
+                getch();
                 break;
             case 4: // Realizar recorrido BFS
                 cout << "Ingrese el vértice de inicio para BFS: ";
                 cin >> u;
                 matrixGraph.bfs(u);
+                getch();
                 break;
             case 5: // Realizar recorrido DFS
                 cout << "Ingrese el vértice de inicio para DFS: ";
@@ -286,23 +294,29 @@ int main() {
                 cout << "DFS Traversal: ";
                 matrixGraph.dfs(u);
                 cout << endl;
+                getch();
                 break;
             case 6: // Aplicar el algoritmo de Dijkstra
                 cout << "Ingrese el vértice de inicio para Dijkstra: ";
                 cin >> u;
                 matrixGraph.dijkstra(u);
+                getch();
                 break;
             case 7: // Aplicar el algoritmo de Kruskal
                 matrixGraph.kruskal();
+                getch();
                 break;
             case 8: // Aplicar el algoritmo de Prim
                 matrixGraph.prim();
+                getch();
                 break;
             case 0: // Salir
                 cout << "Saliendo del programa. ¡Hasta luego!\n";
+                getch();
                 break;
             default: // Opción no válida
                 cout << "Opción no válida. Inténtelo de nuevo.\n";
+                getch();
         }
     } while (choice != 0); // Mientras no se ingrese 0
 
