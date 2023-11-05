@@ -1,4 +1,4 @@
-// Librearias
+// Librerias utilizadas en el programa
 #include <iostream> //cin cout
 #include <vector> //arreglos dinámicos
 #include <queue> //implementación de colas
@@ -6,8 +6,7 @@
 #include <algorithm> //ordenamiento y búsqueda,
 #include <climits> // Para INT_MAX
 #include <conio.h> // Para hacer pausas
-
-using namespace std;
+using namespace std; // para disminuir la cantidad de texto en el programa
 
 // Clase Grafo
 class GraphMatrix {
@@ -249,7 +248,6 @@ int main() {
         matrixGraph.addEdge(u, v, weight); // Agregar arista al grafo
         listGraph.addEdge(u, v, weight); // Agregar arista al grafo
     }
-
     do { // Menú
         system("cls");
         cout << "\nMenú:\n";
@@ -320,6 +318,5 @@ int main() {
                 getch();
         }
     } while (choice != 0); // Mientras no se ingrese 0
-
     return 0;
 }
