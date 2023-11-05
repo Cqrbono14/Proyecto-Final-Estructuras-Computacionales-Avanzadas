@@ -19,11 +19,6 @@ public:
         graph = vector< vector< int > >(V, vector<int>(V, 0)); // Inicializar matriz de adyacencia
     }
 
-    void addEdge(int u, int v, int weight) { // Agregar arista
-        graph[u][v] = weight; // Grafo dirigido 
-        graph[v][u] = weight;  // Grafo no dirigido
-    }
-
     void printMatrix() { // Imprimir matriz de adyacencia
         for (int i = 0; i < V; ++i) { 
             for (int j = 0; j < V; ++j) { 
@@ -31,6 +26,11 @@ public:
             }
             cout << endl;
         }
+    }
+
+    void addEdge(int u, int v, int weight) { // Agregar arista
+        graph[u][v] = weight; // Grafo dirigido 
+        graph[v][u] = weight;  // Grafo no dirigido
     }
 
     bool isConnected() { // Verificar si el grafo es conexo
