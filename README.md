@@ -1,7 +1,7 @@
-# Proyecto-Final-Estructuras-Computacionales-Avanzadas
-Proyecto final para la materia de Estructuras Computacionales Avanzadas 3er Semestre ICI
+# Proyecto-Final-Estructuras-Computacionales-Avanzadas 💻
+Proyecto final para la materia de Estructuras Computacionales Avanzadas
 
-Equipo:
+## Equipo 🎓
 - Francisco Javier Altamira Mata
 - Boris Iván Bernal Orozco
 - Abraham Padilla Pizaña
@@ -9,4 +9,9 @@ Equipo:
 - Raul Iván Rivera Perez
 - Isbaal Antonio Medina Montañés
 - Juan Andrés Rodriguez Parra
-- BenjaminCastillo Corona
+- Benjamin Castillo Corona
+
+## Universidad Autónoma de Aguascalientes 🏫
+  Carrera: Ingeniería en Computación Inteligente
+
+  Semestre: 3
