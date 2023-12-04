@@ -7,7 +7,7 @@ Proyecto final para la materia de Estructuras Computacionales Avanzadas
 - Abraham Padilla Pizaña
 - Haniel Joab Cruz Chávez 
 - Raul Iván Rivera Perez
-- Isbaal Antonio Medina Montañés
+- Isbaal Antonio Medina Montañez
 - Juan Andrés Rodriguez Parra
 - Benjamin Castillo Corona
 
