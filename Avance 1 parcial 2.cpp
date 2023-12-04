@@ -164,9 +164,6 @@ public:
 
 
 
-        cout << "Emparejamiento máximo: " << matchingCount / 2 << endl;
-    }
-
 private:
     int minKey(const vector<int> &key, const vector<bool> &inMST) { // Obtener el vértice con la distancia mínima
         int min = INT_MAX, min_index = -1; // Inicializar distancia mínima y vértice con distancia mínima
