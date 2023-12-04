@@ -162,16 +162,7 @@ public:
         }
     }
 
-void matching() { 		//Funcion para la opcion de pareo en un grafo normal
-        vector<int> match(V, -1); // Inicializar vector de emparejamiento
-        int matchingCount = 0; // Contador de emparejamiento
 
-        for (int u = 0; u < V; ++u) {
-            vector<bool> visited(V, false); // Inicializar vector de visitados
-            if (bpm(u, match, visited)) {
-                matchingCount++;
-            }
-        }
 
         cout << "Emparejamiento máximo: " << matchingCount / 2 << endl;
     }
@@ -211,18 +202,7 @@ private:
         parent[rootX] = rootY; // Unir conjuntos
     }
 
-    bool bpm(int u, vector<int>& match, vector<bool>& visited) {
-        for (int v = 0; v < V; ++v) {
-            if (graph[u][v] && !visited[v]) {
-                visited[v] = true;
-                if (match[v] == -1 || bpm(match[v], match, visited)) {
-                    match[v] = u;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    
 };
 
 class GraphList { // Clase Grafo
@@ -286,7 +266,7 @@ int main() {
         cout << "6. Aplicar el algoritmo de Dijkstra\n";
         cout << "7. Aplicar el algoritmo de Kruskal\n";
         cout << "8. Aplicar el algoritmo de Prim\n";
-        cout << "9. Realizar pareo en un grafo normal\n";
+        
         cout << "0. Salir\n";
         cout << "Ingrese su elección: ";
         cin >> choice;
@@ -337,10 +317,7 @@ int main() {
                 matrixGraph.prim();
                 getch();
                 break;
-            case 9: // opcion de pareo en un grafo normal
-	            matrixGraph.matching();
-	            getch();
-	            break;
+            
             case 0: // Salir
                 cout << "Saliendo del programa. ¡Hasta luego!\n";
                 getch();
