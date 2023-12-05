@@ -5,7 +5,6 @@
 #include <stack> //implementación de pilas
 #include <algorithm> //ordenamiento y búsqueda,
 #include <climits> // Para INT_MAX
-#include <conio.h> // Para hacer pausas
 using namespace std; // para disminuir la cantidad de texto en el programa
 
 // Clase Grafo
@@ -272,25 +271,25 @@ int main() {
             case 1: // Mostrar matriz de adyacencia
                 cout << "Matriz de adyacencia:\n"; 
                 matrixGraph.printMatrix();
-                getch();
+                system("pause");
                 break;
             case 2: // Mostrar lista de adyacencia
                 cout << "Lista de adyacencia:\n";
                 listGraph.printList();
-                getch();
+                system("pause");
                 break;
             case 3: // Verificar si el grafo es conexo
                 if (matrixGraph.isConnected())
                     cout << "El grafo es conexo.\n";
                 else
                     cout << "El grafo no es conexo.\n";
-                getch();
+                system("pause");
                 break;
             case 4: // Realizar recorrido BFS
                 cout << "Ingrese el vértice de inicio para BFS: ";
                 cin >> u;
                 matrixGraph.bfs(u);
-                getch();
+                system("pause");
                 break;
             case 5: // Realizar recorrido DFS
                 cout << "Ingrese el vértice de inicio para DFS: ";
@@ -298,30 +297,30 @@ int main() {
                 cout << "DFS Traversal: ";
                 matrixGraph.dfs(u);
                 cout << endl;
-                getch();
+                system("pause");
                 break;
             case 6: // Aplicar el algoritmo de Dijkstra
                 cout << "Ingrese el vértice de inicio para Dijkstra: ";
                 cin >> u;
                 matrixGraph.dijkstra(u);
-                getch();
+                system("pause");
                 break;
             case 7: // Aplicar el algoritmo de Kruskal
                 matrixGraph.kruskal();
-                getch();
+                system("pause");
                 break;
             case 8: // Aplicar el algoritmo de Prim
                 matrixGraph.prim();
-                getch();
+                system("pause");
                 break;
             
             case 0: // Salir
                 cout << "Saliendo del programa. ¡Hasta luego!\n";
-                getch();
+                system("pause");
                 break;
             default: // Opción no válida
                 cout << "Opción no válida. Inténtelo de nuevo.\n";
-                getch();
+                system("pause");
         }
     } while (choice != 0); // Mientras no se ingrese 0
     return 0;
