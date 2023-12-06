@@ -46,7 +46,7 @@ public:
         graph[v][u] = weight;  // Grafo no dirigido
     }
 
-     void bfs(int start) { // Recorrido BFS
+    void bfs(int start) { // Recorrido BFS
         vector<bool> visited(V, false); // Inicializar vector de visitados
         queue<int> q; // Inicializar cola
 
@@ -196,9 +196,77 @@ public:
     
 };
 
+class BipartiteGraph {
+    const int NIL = 0;
+    const int INF = 1e9;
+    vector<int> match, dist;
+    vector<vector<int>> adj;
+
+public:
+    BipartiteGraph(int n) : match(n + 1), dist(n + 1), adj(n + 1) {}
+
+    void addEdge(int u, int v) {
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    bool bfs() {
+        int n = match.size() - 1;
+        queue<int> Q;
+        for(int u = 1; u <= n; u++) {
+            if(match[u] == NIL) {
+                dist[u] = 0;
+                Q.push(u);
+            } else {
+                dist[u] = INF;
+            }
+        }
+        dist[NIL] = INF;
+        while(!Q.empty()) {
+            int u = Q.front();
+            Q.pop();
+            if(u != NIL) {
+                for(int v : adj[u]) {
+                    if(dist[match[v]] == INF) {
+                        dist[match[v]] = dist[u] + 1;
+                        Q.push(match[v]);
+                    }
+                }
+            }
+        }
+        return dist[NIL] != INF;
+    }
+
+    bool dfs(int u) {
+        if(u == NIL) return true;
+        for(int v : adj[u]) {
+            if(dist[match[v]] == dist[u] + 1 && dfs(match[v])) {
+                match[u] = v;
+                match[v] = u;
+                return true;
+            }
+        }
+        dist[u] = INF;
+        return false;
+    }
+
+    int hopcroft_karp() {
+        int n = match.size() - 1;
+        int matching = 0;
+        while(bfs()) {
+            for(int u = 1; u <= n; u++) {
+                if(match[u] == NIL && dfs(u)) {
+                    matching++;
+                }
+            }
+        }
+        return matching;
+    }
+};
+
 int main() {
     setlocale(LC_ALL, "spanish"); //Comando para al momento de imprimir se puedan imprimir los acentos y las ñ's
-    int numVertices, choice; // Número de vértices y elección del usuario
+    int numVertices, choice, numVerticesBipartito; // Número de vértices y elección del usuario
 
     cout << "Ingrese el número de vértices del grafo: "; // Obtener número de vértices
     cin >> numVertices; // Leer número de vértices
@@ -250,9 +318,22 @@ int main() {
                 cin.get();
                 break;
             case 4: 
-                
+            {
+                cout << "Ingrese el número de vértices del grafo bipartito: "; // Obtener número de vértices
+                cin >> numVerticesBipartito; // Leer número de vértices
+                BipartiteGraph bg(numVerticesBipartito); // n es el número de nodos en el grafo
+                cout << "Ingrese las aristas del grafo bipartito en formato 'u v' (0-indexed). Para finalizar, ingrese -1 -1.\n";
+                while (true) {
+                    cin >> u >> v;
+                    if (u == -1 || v == -1)
+                        break;
+                    bg.addEdge(u, v);
+                }
+                int max_matching = bg.hopcroft_karp();
+                cout << "El máximo pareo en el grafo bipartito es: " << max_matching << endl;
                 cin.get();
                 break;
+            }
             case 5: 
                 cout << "Ingrese el vértice de inicio para BFS: ";
                 cin >> u;
