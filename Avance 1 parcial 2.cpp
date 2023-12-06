@@ -245,6 +245,12 @@ int main() {
 
     int u, v, weight; // Vértices y peso de la arista
     while (true) { // Mientras no se ingrese -1 -1 -1
+        cout<<"\nu: ";
+        cin >> u;
+        cout<<"v: ";
+		cin >> v;
+		cout<<"weight: ";
+		cin >> weight;
         cin >> u >> v >> weight; // Leer arista
         if (u == -1 || v == -1 || weight == -1) // Si se ingresa -1 -1 -1, salir del ciclo
             break;
