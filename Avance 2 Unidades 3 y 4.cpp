@@ -14,12 +14,23 @@ private:
     int V; // Número de vértices
     vector<vector< int > > graph; // Matriz de adyacencia
 
+    bool bpm(int u, vector<int>& match, vector<bool>& visited) {
+        for (int v = 0; v < V; ++v) {
+            if (graph[u][v] && !visited[v]) {
+                visited[v] = true;
+                if (match[v] == -1 || bpm(match[v], match, visited)) {
+                    match[v] = u;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 public:
     GraphMatrix(int vertices) : V(vertices) { // Constructor
         graph = vector< vector< int > >(V, vector<int>(V, 0)); // Inicializar matriz de adyacencia
     }
-
-    
 
     void printMatrix() { // Imprimir matriz de adyacencia
         for (int i = 0; i < V; ++i) { 
@@ -72,7 +83,21 @@ public:
             }
         }
     }   
-   
+
+    void matching() {
+        vector<int> match(V, -1); // Inicializar vector de emparejamiento
+        int matchingCount = 0; // Contador de emparejamiento
+
+        for (int u = 0; u < V; ++u) {
+            vector<bool> visited(V, false); // Inicializar vector de visitados
+            if (bpm(u, match, visited)) {
+                matchingCount++;
+            }
+        }
+
+        cout << "Emparejamiento máximo: " << matchingCount / 2 << endl;
+    }
+
 };
 
 class GraphList { // Clase Grafo
@@ -221,7 +246,7 @@ int main() {
                 cin.get();
                 break;
             case 3: 
-                
+                matrixGraph.matching();
                 cin.get();
                 break;
             case 4: 
