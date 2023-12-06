@@ -251,7 +251,6 @@ int main() {
 		cin >> v;
 		cout<<"weight: ";
 		cin >> weight;
-        cin >> u >> v >> weight; // Leer arista
         if (u == -1 || v == -1 || weight == -1) // Si se ingresa -1 -1 -1, salir del ciclo
             break;
         matrixGraph.addEdge(u, v, weight); // Agregar arista al grafo
